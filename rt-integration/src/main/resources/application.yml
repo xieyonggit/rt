@@ -1,0 +1,34 @@
+server:
+  port: 8000
+
+spring:
+  data:
+    hbase:
+      zkQuorum: 139.9.247.171:2181
+      zkBasePath: /hbase-unsecure
+      rootDir:
+      redis:
+        database: 0
+        host: localhost
+        port: 6379
+        password:
+        timeout: 200
+        pool:
+          max-active: 8
+          max-wait: -1
+          max-idle: 8
+          min-idle: 0
+
+  kafka:
+    bootstrap-servers: 139.9.247.171:6667
+    consumer:
+      groupId: executor
+      enable-auto-commit: true
+      keyDeserializer: org.apache.kafka.common.serialization.StringDeserializer
+      valueDserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      groupId: executor
+      keyDeserializer: org.apache.kafka.common.serialization.StringSerializer
+      valueDserializer: org.apache.kafka.common.serialization.StringSerializer
+      batch-size: 16384
+      buffer-memory: 33554432
